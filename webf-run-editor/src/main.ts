@@ -183,62 +183,9 @@ editorContainer.addEventListener("keydown", (event: KeyboardEvent) => {
         view.dispatch(tr);
       }
     }
-    // if (isInsideListItem) event.preventDefault();
-    // const innerListItem = range?.$from.node($from.depth - 2);
-
-    // if (innerListItem) {
-    //   const innerList =
-    //     innerListItem.type.name === "unorderd_list"
-    //       ? schema.nodes.unordered_list.create(null, [innerListItem])
-    //       : schema.nodes.ordered_list.create(null, [innerListItem]);
-    //   const nestedDivision = schema.nodes.nested_list.create(null, innerList);
-
-    //   const outerListItem = schema.nodes.list_item.create(null, [
-    //     nestedDivision,
-    //   ]);
-    //   console.log($from);
-
-    //   if (range) {
-    //     const tr = view.state.tr.replaceWith(
-    //       $from.depth - $from.node($from.depth).nodeSize + 3,
-    //       $from.depth,
-    //       outerListItem
-    //     );
-    //     view.dispatch(tr);
-    //   }
-    // }
     view.focus();
   }
 });
-
-// editorContainer.addEventListener("keydown", (event: KeyboardEvent) => {
-//   if (event.key === "Tab") {
-//     const { $from } = view.state.selection;
-//     const isInsideListItem = isListItemAtPos($from);
-
-//     if (isInsideListItem) {
-//       event.preventDefault();
-
-//       const innerListItem = schema.nodes.list_item.create(
-//         null,
-//         $from.node($from.depth).content
-//       );
-
-//       const outerListItem = schema.nodes.list_item.create(null, [
-//         schema.nodes.ordered_list.create(null, [innerListItem]),
-//       ]);
-
-//       const tr = view.state.tr.replaceWith(
-//         $from.before($from.depth - 2),
-//         $from.after($from.depth),
-//         outerListItem
-//       );
-
-//       view.dispatch(tr);
-//       view.focus();
-//     }
-//   }
-// });
 
 function selectedNodeType(node: NodeType): string {
   if (node.name === "paragraph") return "paragraph";
